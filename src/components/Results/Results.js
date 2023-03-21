@@ -1,15 +1,24 @@
 import React from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Spinner from '../Spinner/Spinner';
-
 import { mapExpressionToEmoji } from '../../helpers/emojis';
-
 import './Results.css';
 
+// <p>Vos pareces tener {Math.round(results[0].age)} años</p>
 const Results = ({ results, processing }) => {
   if (processing && results) {
     console.log(results);
+    let sUrl = "https://api.appery.io/rest/1/apiexpress/api/People?apiKey=6a7d771a-2d3e-4348-b3e6-de8938ec96f2";
+    fetch(sUrl, 
+      {method: 'POST',
+      body: JSON.stringify({
+        "gender": "male",
+        "expressions": "sad",
+        "id": 5
+      })})
+   .then(response => response.json())
+   .then(data => console.log(data));
+
     return <Spinner />;
   }
   if (!processing && results && results.length > 0) {
@@ -36,7 +45,6 @@ const Results = ({ results, processing }) => {
             <div>
               <p>Creo que...</p>
               <p>Pareces {results[0].expressions.asSortedArray()[0].expression}</p>
-              <p>Vos pareces tener {Math.round(results[0].age)} años</p>
               <p>Creo que sos {results[0].gender}</p>
             </div>
             <div className="results__emoji">

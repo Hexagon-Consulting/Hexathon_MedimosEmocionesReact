@@ -76,7 +76,6 @@ const Camera = ({ photoMode }) => {
         <Webcam audio={false} ref={camera} width="100%" height="auto" />
         <canvas className={classnames('webcam-overlay', photoMode && 'webcam-overlay--hidden')} ref={cameraCanvas} />
       </div>
-
       {photoMode ? (
         <>
           <div className="camera__button-container">
@@ -86,7 +85,6 @@ const Camera = ({ photoMode }) => {
             </Button>
             {photos.length > 0 && <Button onClick={reset}>Reset</Button>}
           </div>
-
           {photos.length > 0 && <Gallery photos={photos} selected={photo} show={showGallery} deleteImage={deleteImage} />}
         </>
       ) : (

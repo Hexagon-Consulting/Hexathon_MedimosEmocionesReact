@@ -1,10 +1,14 @@
 .App {
-  background-color: #3d9970;
+  background-color: #06ecf4;
+  background-image: url("img/hexagon3.jpg");
+  background-size: cover;
   min-height: 100vh;
 }
 
 .App header {
   background: white;
+  background-image: url("img/header.jpeg");
+  background-size: cover;
 }
 
 .App__header {
@@ -15,6 +19,7 @@
   justify-content: space-between;
   align-items: center;
   height: 4em;
+
 }
 
 .App__switcher {
