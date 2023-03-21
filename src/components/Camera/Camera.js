@@ -25,7 +25,7 @@ const Camera = ({ photoMode }) => {
       const faces = await detectFaces(camera.current.video);
       await drawResults(camera.current.video, cameraCanvas.current, faces, 'boxLandmarks');
       setResults(faces);
-      console.log(`faces: ${camera.current.video}`);
+ //     console.log(`faces: ${camera.current.video}`);
     }
   };
 

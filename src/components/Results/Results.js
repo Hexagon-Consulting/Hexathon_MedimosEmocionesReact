@@ -6,19 +6,19 @@ import './Results.css';
 
 // <p>Vos pareces tener {Math.round(results[0].age)} años</p>
 const Results = ({ results, processing }) => {
-  if (processing && results) {
-    console.log(results);
+  if (processing && results[0]) {
+    
     let sUrl = "https://api.appery.io/rest/1/apiexpress/api/People?apiKey=6a7d771a-2d3e-4348-b3e6-de8938ec96f2";
     fetch(sUrl, 
       {method: 'POST',
       body: JSON.stringify({
-        "gender": "male",
-        "expressions": "sad",
-        "id": 5
+        "gender":results[0].gender,
+        "expressions": results[0].expressions.asSortedArray()[0].expression,
+        "id": Number(new Date().getTime())
       })})
    .then(response => response.json())
    .then(data => console.log(data));
-
+      console.log(results);
     return <Spinner />;
   }
   if (!processing && results && results.length > 0) {
